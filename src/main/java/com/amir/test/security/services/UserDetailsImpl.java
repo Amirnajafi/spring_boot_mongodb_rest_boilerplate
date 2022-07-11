@@ -29,28 +29,21 @@ public class UserDetailsImpl implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserDetailsImpl(String id, String username, String name , String family, String password,
-                           Collection<? extends GrantedAuthority> authorities) {
+    public UserDetailsImpl(String id, String username, String name , String family, String password) {
         this.id = id;
         this.username = username;
         this.name = name;
         this.family = family;
         this.password = password;
-        this.authorities = authorities;
     }
 
     public static UserDetailsImpl build(Users user) {
-        List<GrantedAuthority> authorities = user.getRoles().stream()
-                .map(role -> new SimpleGrantedAuthority(role.getName().name()))
-                .collect(Collectors.toList());
-
         return new UserDetailsImpl(
                 user.getId(),
                 user.getUsername(),
                 user.getName(),
                 user.getFamily(),
-                user.getPassword(),
-                authorities);
+                user.getPassword());
     }
 
     @Override

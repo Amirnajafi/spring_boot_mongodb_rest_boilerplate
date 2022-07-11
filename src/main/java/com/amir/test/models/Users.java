@@ -9,6 +9,8 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,7 +26,7 @@ public class Users {
     private String username;
     private String name;
     private String family;
+    @JsonIgnore
     private String password;
-    @DBRef
-    private Set<Role> roles = new HashSet<>();
+    private String role;
 }

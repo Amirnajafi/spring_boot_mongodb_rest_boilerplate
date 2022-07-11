@@ -16,14 +16,12 @@ public class LoginResponse {
     private String username;
     private String name;
     private String family;
-    private List<String> roles;
 
-    public LoginResponse(String accessToken, String id, String username, String name , String family, List<String> roles) {
+    public LoginResponse(String accessToken, String id, String username, String name , String family) {
         this.token = accessToken;
         this.id = id;
         this.username = username;
         this.name = name;
         this.family = family;
-        this.roles = roles;
     }
 }

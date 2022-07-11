@@ -8,8 +8,10 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -26,10 +28,9 @@ public class RegisterDto {
     @NotBlank
     private String family;
 
-    private Set<String> roles;
-
     @NotBlank
     @Size(min = 6, max = 40)
+
     private String password;
 
 }
