@@ -31,7 +31,7 @@ public class UsersService {
                 .family(body.getFamily())
                 .username(body.getUsername())
                 .password(encoder.encode(body.getPassword()))
-                .role(ERole.ROLE_USER)
+                .role(String.valueOf(ERole.ROLE_USER))
                 .build();
         usersRepository.save(user);
         return user;
