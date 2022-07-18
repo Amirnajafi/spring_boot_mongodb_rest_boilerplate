@@ -6,10 +6,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateProductDto {
+public class RemoveProductDto {
     private String id;
-    private String name;
-    private String description;
-    private Long price;
-    private String category;
 }
