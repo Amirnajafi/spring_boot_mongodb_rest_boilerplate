@@ -9,7 +9,7 @@ services:
     volumes:
       - /data/springboot
     ports:
-      - "8081:8081"
+      - "9500:8081"
     networks:
       - default
 networks:
