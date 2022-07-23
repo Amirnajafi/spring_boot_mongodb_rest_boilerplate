@@ -8,6 +8,9 @@ import com.amir.test.users.UsersService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+
 
 import javax.validation.Valid;
 import java.security.Principal;
@@ -21,12 +24,14 @@ public class ProductsController {
     private final UsersService usersService;
 
     @GetMapping
+    @CrossOrigin(origins = "*")
     @ResponseStatus(HttpStatus.OK)
     public List<Products> getUsers(Principal principal){
         return  productsService.getAllProducts();
     }
 
     @PostMapping
+    @CrossOrigin(origins = "*")
     @ResponseStatus(HttpStatus.CREATED)
     public Products addUser(@Valid @RequestBody CreateProductDto body , Principal principal){
         Users user = usersService.getUserByUsername(principal.getName());
@@ -34,6 +39,7 @@ public class ProductsController {
     }
 
     @PutMapping
+    @CrossOrigin(origins = "*")
     @ResponseStatus(HttpStatus.OK)
     public Products updateUser(@Valid @RequestBody CreateProductDto body , Principal principal){
         Users user = usersService.getUserByUsername(principal.getName());
@@ -41,6 +47,7 @@ public class ProductsController {
     }
 
     @DeleteMapping
+    @CrossOrigin(origins = "*")
     @ResponseStatus(HttpStatus.OK)
     public String removeProducts(@Valid @RequestBody RemoveProductDto body , Principal principal){
         Users user = usersService.getUserByUsername(principal.getName());
